@@ -1,9 +1,10 @@
 import React from 'react'
 import Directory from '../../components/Directory/index';
+import './styles.scss'
 
 const HomePage = props => {
   return (
-    <section>
+    <section className="homepage">
       <Directory />
     </section>
   );

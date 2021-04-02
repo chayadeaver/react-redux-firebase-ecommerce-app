@@ -1,6 +1,7 @@
 import React from 'react'
 import ShopMen from './../../assets/shopMens.jpeg';
 import ShopWomen from './../../assets/shopWomens.jpeg';
+import './styles.scss'
 
 
 const Directory = props => {
