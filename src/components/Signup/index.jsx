@@ -32,7 +32,7 @@ export default class Signup extends Component {
 
   handleFormSubmit = async event => {
     event.preventDefault();
-    const { displayName, email, password, confirmPassword, errors } = this.state;
+    const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword){
       const err = [`Password doesn't match`];
@@ -40,6 +40,20 @@ export default class Signup extends Component {
         errors: err
       })
       return;
+    }
+
+    try {
+
+      const { user } = await auth.createUserWithEmailAndPassword(email, password);
+
+      await handleUserProfile(user, { displayName });
+
+      this.setState({
+        ...initialState
+      })
+
+    } catch(err) {
+      // console.log(err);
     }
 
   }
