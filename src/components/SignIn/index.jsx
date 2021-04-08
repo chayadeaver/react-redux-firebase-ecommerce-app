@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './styles.scss'
 import Button from './../forms/Button'
-import { signInWithGoogle } from './../../firebase/utils'
+import { signInWithGoogle, auth } from './../../firebase/utils'
 import FormInput from '../forms/FormInput/index';
 
 const initialState = {
@@ -15,6 +15,8 @@ class SignIn extends Component {
     this.state = {
       ...initialState
     };
+    // passes props down to multiple inputs
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
@@ -23,12 +25,22 @@ class SignIn extends Component {
       [name]: value
     });
 
-    // passes props down to multiple inputs
-    this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit = async e => {
     e.preventDefault();
+    const { email, password } = this.state;
+
+    try {
+
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({
+        ...initialState
+      });
+
+    } catch(err) {
+      // console.log(err);
+    }
   }
 
   render(){
