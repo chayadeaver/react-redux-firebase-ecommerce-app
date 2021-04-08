@@ -59,18 +59,18 @@ class App extends Component {
       <div className="App">
         <Switch>
             <Route exact path="/" render={() => (
-              <HomePageLayout currentUser={currentUser}>
+              <HomePageLayout>
                 <HomePage />
               </HomePageLayout>
             )}/>
             <Route path="/registration" render={() => currentUser ? <Redirect to="/" /> : (
-              <MainLayout currentUser={currentUser}>
+              <MainLayout>
                 <Registration />
               </MainLayout>
             )} />
             <Route path="/login" 
             render={() => currentUser ?  <Redirect to="/" /> : (
-              <MainLayout currentUser={currentUser}>
+              <MainLayout>
                 <Login />
               </MainLayout>
             )} />
