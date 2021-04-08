@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './styles.scss'
+import { Link } from 'react-router-dom'
 import Button from './../forms/Button'
 import { signInWithGoogle, auth } from './../../firebase/utils'
 import FormInput from '../forms/FormInput/index';
@@ -83,6 +84,14 @@ class SignIn extends Component {
                 </Button>
               </div>
             </div>
+
+            <div className="links">
+              <Link to="/recovery">
+                Reset Password
+              </Link>
+            </div>
+
+
           </form>
         </div>
       </AuthWrapper>
