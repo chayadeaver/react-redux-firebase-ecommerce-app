@@ -71,8 +71,6 @@ const SignIn = props => {
               Reset Password
             </Link>
           </div>
-
-
         </form>
       </div>
     </AuthWrapper>
