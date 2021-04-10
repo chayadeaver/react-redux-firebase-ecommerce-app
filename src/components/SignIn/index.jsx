@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './styles.scss'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import Button from './../forms/Button'
 import { signInWithGoogle, auth } from './../../firebase/utils'
 import FormInput from '../forms/FormInput/index';
@@ -23,7 +23,7 @@ const SignIn = props => {
 
       await auth.signInWithEmailAndPassword(email, password);
       resetForm();
-
+      props.history.push('/');
     } catch(err) {
       // console.log(err);
     }
@@ -78,4 +78,4 @@ const SignIn = props => {
   
 }
 
-export default SignIn;
+export default withRouter(SignIn);
