@@ -143,7 +143,7 @@ const Admin = props => {
                         documentID
                       } = product;
                       return (
-                        <tr>
+                        <tr key={index}>
                           <td>
                             <img className="thumb" src={productThumbnail} alt=""/>
                           </td>
