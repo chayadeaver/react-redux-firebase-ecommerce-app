@@ -27,6 +27,7 @@ import Dashboard from './pages/Dashboard/index';
 import Admin from './pages/Admin'
 import ProductDetails from './pages/ProductDetails/index';
 import Cart from './pages/Cart/index';
+import Payment from './pages/Payment/index';
 
 
 
@@ -69,6 +70,13 @@ const App = props => {
             <MainLayout>
               <Cart />
             </MainLayout>
+          )}/>
+          <Route path="/payment" render={() => (
+            <WithAuth>
+              <MainLayout>
+                <Payment />
+            </MainLayout>
+            </WithAuth>
           )}/>
           <Route path="/registration" render={() => (
             <MainLayout>
