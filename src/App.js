@@ -28,6 +28,7 @@ import Admin from './pages/Admin'
 import ProductDetails from './pages/ProductDetails/index';
 import Cart from './pages/Cart/index';
 import Payment from './pages/Payment/index';
+import Order from './pages/Order/index';
 
 
 
@@ -98,6 +99,13 @@ const App = props => {
             <WithAuth>
               <DashboardLayout>
                 <Dashboard />
+              </DashboardLayout>
+            </WithAuth>
+          )}/>
+          <Route path="/order/:orderID" render={() => (
+            <WithAuth>
+              <DashboardLayout>
+                <Order />
               </DashboardLayout>
             </WithAuth>
           )}/>
